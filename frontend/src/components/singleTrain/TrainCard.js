@@ -3,7 +3,7 @@ import React from 'react'
 const TrainCard = () => {
   return (
     <>
-      <div class="card" >
+      <div class="card" style="width : 18rem">
         <div class="card-body">
             <h5 class="card-title">Train Name</h5>
             <p class="card-text">Train Number</p>

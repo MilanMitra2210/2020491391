@@ -1,12 +1,10 @@
 const express = require('express');
-const { getTrains, searchTrain } = require('../controller/ticket-controller');
-const router = express.Router();
+const { getTrains, searchTrain } = require('../controller/ticket-controller.js');
 
-router.get('/',(req, res) =>{
-    res.send('Server is up and running');
-});
-router.get('/alltrains',getTrains);
+const route = express.Router();
 
-router.get('/train/:number',searchTrain);
 
-module.exports = router;
+route.get('/trains/:type',getTrains);
+route.get('/searchtrain/:number',searchTrain);
+
+module.exports = route;

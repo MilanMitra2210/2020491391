@@ -1,14 +1,18 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 5000;
-const http = require('http');
-const cors = require('cors');
-const routes = require('./router/route');
+const express=require('express');
+const cors=require('cors');
+const route=require('./router/route.js');
 
+const app=express();
 
-const server = http.createServer(app);
+const port=process.env.PORT || 5000;
 
-app.use(routes);
 app.use(cors());
 
-server.listen(port, () => console.log(`Server has started on port ${port}`))
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+app.use('/',route);
+
+app.listen(port,()=>{
+    console.log(`Server is Running on Port ${port}`);
+})
