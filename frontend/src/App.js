@@ -1,19 +1,20 @@
-import './App.css';
-import AllTrains from './components/alltrains/AllTrains';
-import NavBar from './components/navBar/NavBar';
-import { Route, BrowserRouter ,Routes } from 'react-router-dom';
-import SingleTrain from './components/singleTrain/SingleTrain';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Navbar from "./components/navbar.js";
+import Home from "./pages/Home.js";
+import SearchTrain from "./pages/Search.js";
 
-
-function App() {
+const App=()=>{
   return (
-    <BrowserRouter>
-        <NavBar/>
+    <>
+      <BrowserRouter>
+        <Navbar/>
         <Routes>
-          <Route path='/' exact Component={AllTrains} />
-          <Route path='/train' exact Component={SingleTrain} />
+          <Route path="/" element={<Home/>}/>
+          <Route path="/home" element={<Home/>}/>
+          <Route path="/search" element={<SearchTrain/>}/>
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </> 
   );
 }
 
